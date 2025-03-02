@@ -39,4 +39,15 @@ class CalendarApp:
 
         def update_calendar(self):
             #Clear previous calendar
-            for widget in self.calendar_frame.winfo_children()
+            for widget in self.calendar_frame.winfo_children():
+                if widget.grid_info()['row'] !='0': #prendre la tete
+                    widget.destroy()
+
+        try :
+            year=int(self.year_entry.get())
+            month=yaer=int(self.month_entry.get())
+            if not (i<=month <= 12):
+                raise ValueError
+        except ValueError :
+            messagebox.showerror("Error","Year and month must be valid integer")
+
